@@ -8,3 +8,8 @@ resource "google_storage_bucket" "my_storage_bucket" {
 
   public_access_prevention = "enforced"
 }
+resource "google_storage_bucket" "public_storage_bucket" {
+  name          = "likimani-public-access-bucket"
+  location      = "US"
+  force_destroy = true
+}
