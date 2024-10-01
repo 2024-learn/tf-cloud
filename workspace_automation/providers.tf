@@ -28,5 +28,4 @@ provider "google" {
   project                     = "phyll-mamz-playground"
   impersonate_service_account = "terraform-tf-cloud-sa@phyll-mamz-playground.iam.gserviceaccount.com"
 }
-provider "tfe" {}
 
