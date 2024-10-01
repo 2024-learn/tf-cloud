@@ -1,5 +1,5 @@
 variable "workspace_name" {
-  default = "tf-cloud-staging"
+  default = "tf-cloud"
 }
 
 variable "organization" {
