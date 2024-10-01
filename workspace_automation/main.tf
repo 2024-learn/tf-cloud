@@ -1,13 +1,3 @@
-provider "tfe" {}
-
-variable "workspace_name" {
-  default = "tf-cloud-staging"
-}
-
-variable "organization" {
-  default = "likimani-tf-cloud"
-}
-
 data "tfe_workspace" "tfe_workspace" {
   name = var.workspace_name
   organization = var.organization
