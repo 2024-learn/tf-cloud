@@ -8,34 +8,34 @@ data "tfe_organization" "tfcloud_org" {
 }
 
 resource "tfe_workspace" "tf-cloud-dev" {
-  name         = var.new_dev_workspace
-  organization = var.organization
-  project_id   = data.tfe_organization.tfcloud_org.default_project_id
+  name              = var.new_dev_workspace
+  organization      = var.organization
+  project_id        = data.tfe_organization.tfcloud_org.default_project_id
   terraform_version = var.tf_version
 }
 
 resource "tfe_variable" "managed" {
-  key = "new_variable_key"
-  value = "new_variable_value"
-  category = "terraform"
+  key          = "new_variable_key"
+  value        = "new_variable_value"
+  category     = "terraform"
   workspace_id = tfe_workspace.tf-cloud-dev.id
-  description = "example of a regular var"
+  description  = "example of a regular var"
 }
 
 resource "tfe_variable" "sensitive" {
-  key = "sensitive_variable_key"
-  value = "sensitive_variable_value"
-  category = "terraform"
+  key          = "sensitive_variable_key"
+  value        = "sensitive_variable_value"
+  category     = "terraform"
   workspace_id = tfe_workspace.tf-cloud-dev.id
-  description = "example of a sensitive var"
-  sensitive = true
+  description  = "example of a sensitive var"
+  sensitive    = true
 }
 
 resource "tfe_variable" "hcl" {
-  key = "hcl_variable_key"
-  value = "[hcl_variable_value]"
-  category = "terraform"
+  key          = "hcl_variable_key"
+  value        = "[hcl_variable_value]"
+  category     = "terraform"
   workspace_id = tfe_workspace.tf-cloud-dev.id
-  description = "variable written in HCL form"
-  hcl = true
+  description  = "variable written in HCL form"
+  hcl          = true
 }
