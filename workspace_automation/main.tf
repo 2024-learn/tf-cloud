@@ -11,14 +11,15 @@ output "workspace_terraform_version" {
   value = data.tfe_workspace.tfe_workspace.terraform_version
 }
 
-
-data "tfe_organization" "tf_cloud_org" {
-  name = "likimani-tf-cloud"
+data "tfe_project" "tf_cloud_project" {
+  name = "default"
+  organization = var.organization
 }
 
 resource "tfe_workspace" "new_dev_workspace" {
   name         = var.new_dev_workspace
   organization = var.organization
+  project_id = data.tfe_project.tf_cloud_project.id
 }
 
 output "new_dev_workspace_id" {
