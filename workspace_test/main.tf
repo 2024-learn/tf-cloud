@@ -1,47 +1,41 @@
-provider "tfe" {}
-
 data "tfe_workspace" "tfe_workspace" {
   name         = var.workspace_name
   organization = var.organization
 }
 
-variable "workspace_name" {
-  default = "likimani-dev-workspace"
-}
-
-variable "organization" {
-  default = "likimani-tf-cloud"
-}
-
-output "workspace_id" {
-  value = data.tfe_workspace.tfe_workspace.id
-}
-
-output "workspace_terraform_version" {
-  value = data.tfe_workspace.tfe_workspace.terraform_version
-}
-
 data "tfe_organization" "tfcloud_org" {
   name = "likimani-tf-cloud"
 }
-output "tfe_project_id" {
-  value = data.tfe_organization.tfcloud_org.default_project_id
-}
-resource "tfe_workspace" "new_dev_workspace" {
+
+resource "tfe_workspace" "tf-cloud-dev" {
   name         = var.new_dev_workspace
   organization = var.organization
   project_id   = data.tfe_organization.tfcloud_org.default_project_id
+  terraform_version = var.tf_version
 }
 
-variable "new_dev_workspace" {
-  default = "tf-cloud-dev"
+resource "tfe_variable" "managed" {
+  key = "new_variable_key"
+  value = "new_variable_value"
+  category = "terraform"
+  workspace_id = tfe_workspace.tf-cloud-dev.id
+  description = "example of a regular var"
 }
 
-
-output "new_dev_workspace_id" {
-  value = tfe_workspace.new_dev_workspace.id
+resource "tfe_variable" "sensitive" {
+  key = "sensitive_variable_key"
+  value = "sensitive_variable_value"
+  category = "terraform"
+  workspace_id = tfe_workspace.tf-cloud-dev.id
+  description = "example of a sensitive var"
+  sensitive = true
 }
 
-output "new_dev_workspace_tf_version" {
-  value = tfe_workspace.new_dev_workspace.terraform_version
+resource "tfe_variable" "hcl" {
+  key = "hcl_variable_key"
+  value = "[hcl_variable_value]"
+  category = "terraform"
+  workspace_id = tfe_workspace.tf-cloud-dev.id
+  description = "variable written in HCL form"
+  hcl = true
 }
