@@ -4,7 +4,7 @@ terraform {
     organization = "likimani-tf-cloud" 
 
     workspaces { 
-      name = "likimani-dev-workspace" 
+      name = "tf-cloud" 
     } 
   }
   required_providers {
