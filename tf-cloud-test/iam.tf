@@ -3,8 +3,8 @@ module "cloud-storage" {
   version = "6.1.0"
   # insert required variables here
   project_id = "phyll-mamz-playground"
-  names = ["dev-storage", "staging-storage"]
-  prefix = "likimani-tf-cloud"
+  names = ["backend-bucket", "app-bucket"]
+  prefix = "likimani-tf-cloud-${var.workspace_env}"
   set_admin_roles = true
   admins = ["user:phyllis@phyllmamz.com", "user:mambo@phyllmamz.com"]
   versioning = {
