@@ -4,5 +4,10 @@
 # variable "AWS_SECRET_ACCESS_KEY" {}
 # variable "GOOGLE_CREDENTIALS"{}
 variable "workspace_env" {
+<<<<<<< HEAD
   default = "prod"
 }
+=======
+  default = "staging"
+}
+>>>>>>> staging
