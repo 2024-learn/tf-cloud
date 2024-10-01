@@ -3,9 +3,9 @@ terraform {
     hostname     = "app.terraform.io"
     organization = "likimani-tf-cloud"
 
-    workspaces {
-      name = "likimani-dev-workspace"
-    }
+    # workspaces {
+    #   name = "likimani-dev-workspace"
+    # }
   }
   required_providers {
     google = {
