@@ -6,6 +6,3 @@
 variable "workspace_env" {
   default = "staging"
 }
-variable "workspace_env" {
-  default = "dev"
-}
