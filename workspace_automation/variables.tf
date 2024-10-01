@@ -1,5 +1,5 @@
 variable "workspace_name" {
-  default = "likimani-dev-workspace"
+  default = "tf-cloud-staging"
 }
 
 variable "organization" {
