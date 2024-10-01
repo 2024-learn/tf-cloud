@@ -1,5 +1,3 @@
-provider "tfe" {}
-
 data "tfe_workspace" "tfe_workspace" {
   name = var.workspace_name
   organization = var.organization
