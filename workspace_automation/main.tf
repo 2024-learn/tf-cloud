@@ -18,7 +18,7 @@ data "tfe_organization" "tf_cloud_org" {
 
 resource "tfe_workspace" "new_dev_workspace" {
   name         = var.new_dev_workspace
-  organization = data.tfe_organization.tf_cloud_org.name
+  organization = var.organization
 }
 
 output "new_dev_workspace_id" {
