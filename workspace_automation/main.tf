@@ -3,13 +3,13 @@
 #   organization = var.organization
 # }
 
-output "workspace_id" {
-  value = data.tfe_workspace.tfe_workspace.id
-}
+# output "workspace_id" {
+#   value = data.tfe_workspace.tfe_workspace.id
+# }
 
-output "workspace_terraform_version" {
-  value = data.tfe_workspace.tfe_workspace.terraform_version
-}
+# output "workspace_terraform_version" {
+#   value = data.tfe_workspace.tfe_workspace.terraform_version
+# }
 
 resource "tfe_workspace" "new_dev_workspace" {
   name         = var.new_dev_workspace
