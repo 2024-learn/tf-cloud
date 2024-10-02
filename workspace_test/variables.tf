@@ -1,5 +1,5 @@
 variable "workspace_name" {
-  default = "tf-cloud-dev"
+  default = "tf-cloud-development"
 }
 
 variable "organization" {
