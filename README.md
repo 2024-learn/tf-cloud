@@ -38,4 +38,10 @@
   - The policies an be set at org or workspace level
 
 - You can set up notifications at workspace level
+- Set token: `export TOKEN=$(grep token <path the tf credentials> | cut -d ' ''' -f4)`
+- Set organization: `export ORG=<myorgname>`
+- Set workspace ID:
+  - `export WORKSPACE_ID=curl -s --header "Authorization: Bearer $TOKEN" --header "Content-Type: application/vnd.api+json" https://app.teraform.io/api/v2/organizations/$ORG/workspaces/$WORKSPACE_ID | jq -r .data.id`
+  
+- Display all env variables: `printenv`
 - 
